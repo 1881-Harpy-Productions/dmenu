@@ -6,11 +6,11 @@ PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man
 
 ## freebsd
-#X11INC = /usr/local/include
-#X11LIB = /usr/local/lib
+X11INC = /usr/local/include
+X11LIB = /usr/local/lib
 
-X11INC = /usr/X11R6/include
-X11LIB = /usr/X11R6/lib
+#X11INC = /usr/X11R6/include
+#X11LIB = /usr/X11R6/lib
 
 # Xinerama, comment if you don't want it
 XINERAMALIBS  = -lXinerama
@@ -28,7 +28,7 @@ LIBS = -L$(X11LIB) -lX11 $(XINERAMALIBS) $(FREETYPELIBS)
 
 # flags
 CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 -D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\" $(XINERAMAFLAGS)
-CFLAGS   = -std=c17 -pedantic -Wall -Os -march=native -mtune=native $(INCS) $(CPPFLAGS)
+CFLAGS   = -std=c17 -pedantic -Wall -O2 -march=native -mtune=native $(INCS) $(CPPFLAGS)
 LDFLAGS  = $(LIBS)
 # compiler and linker
-CC = clang
+CC = clang13
